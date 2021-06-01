@@ -1,20 +1,5 @@
-// Classes
+import { Invoice } from "./classes/Invoice.js";
 
-class Invoice {
-  client: string;
-  details: string;
-  amount: number;
-
-  constructor(c: string, d: string, a: number) {
-    this.client = c;
-    this.details = d;
-    this.amount = a;
-  }
-
-  format() {
-    return `${this.client} owes $${this.amount} for ${this.details}`;
-  }
-}
 // New Instance of Invoice Class
 const invoiceOne = new Invoice("Mario", "work on the mario website", 100);
 const invoiceTwo = new Invoice("Luigi", "work on luigis website", 200);
@@ -23,7 +8,11 @@ const invoiceTwo = new Invoice("Luigi", "work on luigis website", 200);
 let invoices: Invoice[] = [];
 invoices.push(invoiceOne);
 invoices.push(invoiceTwo);
-console.log(invoices);
+
+invoices.forEach((inv) => {
+  console.log(inv.client, inv.amount, inv.format());
+});
+
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 
 const type = document.querySelector("#type") as HTMLSelectElement;
